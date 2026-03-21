@@ -10,7 +10,8 @@ struct NodoOleada {
 
 class ListaCircular {
 private:
-    NodoOleada* ultimo; // [cite: 47]
+    NodoOleada* ultimo; 
+    NodoOleada* oleadaActual;
 
 public:
     ListaCircular();

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ListaCircular.h" 
+#include "../include/ListaCircular.h" 
 
 using namespace std;
 
@@ -16,7 +16,7 @@ void ListaCircular::registrarOleada(Oleada nuevaOleada) {
 
     if (ultimo == NULL) {
         ultimo = nuevo;
-        ultimo->siguiente = ultimo; // Se apunta a sí mismo para ser circular
+        ultimo->siguiente = ultimo; // Se apunta a sï¿½ mismo para ser circular
         oleadaActual = ultimo;      // La primera registrada es la actual
     } else {
         nuevo->siguiente = ultimo->siguiente; // El nuevo apunta al primero
@@ -37,7 +37,7 @@ Oleada* ListaCircular::avanzarSiguienteOleada() {
 // Reiniciar: Vuelve el cursor al inicio de la lista 
 void ListaCircular::reiniciarCiclo() {
     if (ultimo != NULL) {
-        oleadaActual = ultimo->siguiente; // El siguiente del último es el primero
+        oleadaActual = ultimo->siguiente; // El siguiente del ï¿½ltimo es el primero
     }
 }
 
