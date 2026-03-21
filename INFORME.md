@@ -79,8 +79,6 @@ Estos datos permiten ajustar la dificultad de forma progresiva en cada ciclo.
 * **reiniciarCiclo:** Reinicia el recorrido de las oleadas. Ubica el puntero `oleadaActual` en el primer nodo de la lista, permitiendo comenzar nuevamente el ciclo de niveles sin modificar la estructura.
 * **mostrarOleadas:** Recorre la lista circular y muestra la información. Inicia desde el primer nodo usando un ciclo controlado (`do-while`) para evitar recorridos infinitos, imprimiendo los datos relevantes.
 
----
-
 ## Módulo 4: Motor del Juego e Integración
 *(Responsable: Líder del Equipo)*
 
