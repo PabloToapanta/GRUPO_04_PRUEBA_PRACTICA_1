@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/ListaSecuencial.h"
+#include "include/ListaSecuencial.h"
 
 int main() {
     std::cout << "--- INICIANDO PRUEBAS DEL DESARROLLADOR 1 ---\n\n";
