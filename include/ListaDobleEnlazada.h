@@ -15,7 +15,8 @@ private:
     NodoEnemigo* ultimo;  // [cite: 38]
 
 public:
-    ListaDobleEnlazada();
+    ListaDobleEnlazada(); //Destructor
+    ~ListaDobleEnlazada();
     void insertarFinal(Enemigo nuevoEnemigo); // [cite: 41]
     void eliminarDestruido(int id);           // [cite: 42]
     NodoEnemigo* buscarEnemigo(int id);       // [cite: 43]
