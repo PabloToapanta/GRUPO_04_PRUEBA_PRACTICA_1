@@ -76,16 +76,29 @@ Estos datos permiten ajustar la dificultad de forma progresiva en cada ciclo.
 ---
 
 ## Módulo 4: Motor del Juego e Integración
-*(Responsable: [Tu Nombre])*
+*(Responsable: Líder del Equipo)*
 
-### 1. Justificación de la Integración
-[Aquí explicarás cómo la clase `Juego` orquesta las tres estructuras de datos sin romper el encapsulamiento, y cómo se maneja el "tablero imaginario" matemático].
+En esta sección se describe la arquitectura central del sistema. El archivo `Juego.cpp` actúa como el controlador principal que orquesta la interacción entre las tres estructuras de datos independientes (Torres, Enemigos y Oleadas) y define las reglas del entorno de simulación.
+
+### 1. Justificación de la Integración y el Tablero Virtual
+Para mantener los principios de la Programación Orientada a Objetos, la integración se realizó respetando estrictamente el **encapsulamiento**. La clase `Juego` no accede directamente a los punteros ni a los arreglos privados de las listas; en su lugar, se comunica a través de métodos de acceso seguros (getters) como `obtenerPrimero()` y `obtenerTorrePorIndice()`. 
+
+Adicionalmente, se optó por una optimización de memoria al **no crear una matriz o arreglo físico** para representar el tablero. El mapa de juego es una abstracción matemática definida por la variable `longitudCamino` (con límite de 20 posiciones). La ubicación de los elementos se gestiona puramente a través de sus coordenadas numéricas (`posicion`), lo que hace que el sistema sea mucho más rápido y consuma menos recursos.
 
 ### 2. Lógica del Turno (Matemática de Colisiones)
-[Aquí explicarás detalladamente cómo usas la distancia absoluta (`abs()`) para calcular si el enemigo entró en el rango de visión de la torre].
+El núcleo del motor del juego reside en el método `avanzarTurno()`, el cual se ejecuta secuencialmente en cuatro fases:
+
+1. **Aparición (Spawn):** Se extraen los datos de la lista circular de oleadas para instanciar nuevos enemigos en la posición inicial (0).
+2. **Movimiento:** Se recorre la lista doblemente enlazada, sumando el atributo `velocidad` a la `posicion` actual de cada enemigo.
+3. **Cálculo de Colisiones y Daño:** En lugar de buscar en casillas físicas, el motor cruza la lista secuencial de torres con la lista doble de enemigos. Se importó la librería estándar `<cmath>` para calcular la distancia absoluta entre ambos elementos mediante la fórmula: `distancia = abs(torre.posicion - enemigo.posicion)`. Si esta `distancia` es menor o igual al `rango` de visión de la torre, se confirma la colisión y se descuenta el daño a la vida del enemigo.
+4. **Limpieza de Memoria:** Se recorre la lista de enemigos evaluando su estado. Si la vida llega a 0, el nodo es eliminado de la memoria. 
 
 ### 3. Control del Flujo de Partida
-[Breve explicación del menú de consola y las condiciones de derrota (pérdida de vidas)].
+El sistema cuenta con una interfaz de consola (CLI) interactiva basada en un menú principal de 10 opciones. 
+
+**Características clave de la interfaz:**
+* **Validación de entradas:** Se implementó protección contra errores de tipeo utilizando `cin.fail()`, `cin.clear()` y `cin.ignore()`. Esto evita que el programa colapse o entre en un bucle infinito si el usuario ingresa accidentalmente un carácter no numérico.
+* **Condición de Derrota:** El motor monitorea constantemente la posición de los enemigos en la fase de limpieza. Si un enemigo supera el límite establecido (`posicion >= longitudCamino`), se invoca su eliminación y se descuenta una de las 3 vidas iniciales del jugador. El bucle del menú principal (`while`) se rompe automáticamente si las vidas llegan a 0, finalizando la ejecución del programa.
 
 ---
 
