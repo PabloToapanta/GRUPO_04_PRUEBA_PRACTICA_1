@@ -5,7 +5,7 @@
 
 ##  Integrantes del Equipo
 * **Desarrollador 1:** David Rodriguez - Módulo de Torres (Lista Secuencial)
-* **Desarrollador 2:** [Nombre y Apellido] - Módulo de Enemigos (Lista Doble)
+* **Desarrollador 2:** Jeampierre Ortiz - Módulo de Enemigos (Lista Doble)
 * **Desarrollador 3:** Estiven Chiluisa - Módulo de Oleadas (Lista Circular)
 * **Desarrollador 4 :** Pablo Toapanta - Motor del Juego e Integración
 
@@ -34,20 +34,33 @@ Para la gestión de todas las defensas se implementó una (Lista Secuencial) bas
 ---
 
 ## Módulo 2: Sistema de Enemigos (Lista Doblemente Enlazada)
-*(Responsable: [Nombre del Desarrollador 2])*
+*(Responsable: [Jeampierre Ortiz])*
 
 ### 1. Justificación de la Estructura de Datos
-[El desarrollador 2 debe explicar las ventajas del doble puntero (siguiente y anterior) para gestionar datos dinámicos que cambian de posición y mueren constantemente].
+Se seleccionó una Lista Doblemente Enlazada debido a la naturaleza altamente dinámica de los enemigos en un Tower Defense. A diferencia de un arreglo estático, esta estructura permite:
+*	**Inserción y eliminación eficiente**: Los enemigos aparecen en el inicio y pueden ser destruidos en cualquier punto del trayecto; la lista doble permite eliminarlos simplemente reconectando los punteros de los nodos vecinos, sin necesidad de desplazar el resto de los elementos.
+*	**Recorrido Bidireccional**: El uso de punteros siguiente y anterior facilita tanto el avance de los enemigos hacia la base como posibles mecánicas de retroceso o inspección de la cola hacia el frente.
+*	**Gestión de Memoria**: Permite un control estricto de la memoria RAM mediante la creación y destrucción de nodos en tiempo de ejecución, evitando el desperdicio de espacio.
 
 ### 2. Estructura del Nodo (Enemigo)
-[El desarrollador 2 debe listar los atributos: id, vida, velocidad, posicion, etc., y los punteros del nodo].
+Cada nodo de la lista almacena un objeto de tipo Enemigo y dos punteros de control. Atributos del objeto Enemigo:
+*	id: Identificador único numérico.
+*	tipo: Nombre de la unidad (ej. Orco, Troll).
+*	vida: Puntos de resistencia actuales.
+*	velocidad: Cantidad de casillas que avanza por turno.
+*	posicion: Ubicación actual en el camino (de 0 a 20).
+Punteros del NodoEnemigo:
+*	siguiente: Dirección del enemigo que va más adelante en el camino.
+*	anterior: Dirección del enemigo que viene detrás.
 
 ### 3. Lógica de Funciones Implementadas
-* **insertarFinal:** [Explicación de cómo conecta el nuevo nodo ajustando el puntero 'ultimo'].
-* **eliminarDestruido:** [Explicación de cómo reconecta los punteros vecinos para no romper la lista al borrar un enemigo en el medio].
-* **actualizarPosiciones:** [Explicación de la fórmula posición += velocidad].
+Para asegurar la robustez del módulo, se implementaron las siguientes funciones:
+*	insertarFinal: Esta función es la encargada de insertar enemigos a la lista; cada vez que una Oleada genera un atacante, este se conecta al final de la lista en la posición cero. Se añadió una validación de ID único para evitar conflictos de datos antes de reservar memoria para el nuevo nodo.
+*	eliminarDestruido: Busca un enemigo por su ID y procede a reajustar los punteros de los nodos vecinos (anterior y siguiente) para "coser" la lista antes de liberar la memoria física con delete. Esto asegura que la cadena de atacantes nunca se rompa al eliminar un nodo intermedio.
+*	actualizarPosiciones: Recorre toda la lista mediante un puntero auxiliar aux para modificar el atributo posición de cada enemigo. Se aplica la fórmula matemática posicion += velocidad cada vez que el motor del juego procesa un nuevo turno.
+*	recorrerAdelante (Visualización): Implementa un recorrido desde el puntero primero hasta el ultimo. Se mejoró la salida por consola utilizando tabuladores (\t) y encabezados para mostrar las estadísticas de los enemigos de forma tabular y legible.
+*	Destructor (~ListaDobleEnlazada): Garantiza la limpieza total de la memoria al finalizar el programa, recorriendo la lista y eliminando cada nodo pendiente para evitar fugas de memoria (memory leaks).
 
----
 
 ## Módulo 3: Sistema de Oleadas (Lista Circular Simplemente Enlazada)
 *(Responsable: Estiven Chiluiza)*
