@@ -22,7 +22,8 @@ public:
     NodoEnemigo* buscarEnemigo(int id);       // [cite: 43]
     void recorrerAdelante();                  // [cite: 44]
     void recorrerAtras();                     // [cite: 45]
-    void actualizarPosiciones();              // [cite: 46]
+    void actualizarPosiciones();    
+    NodoEnemigo* obtenerPrimero();          // [cite: 46]
 };
 
 #endif

@@ -10,14 +10,17 @@ struct NodoOleada {
 
 class ListaCircular {
 private:
-    NodoOleada* ultimo; // [cite: 47]
+    NodoOleada* ultimo; 
+    NodoOleada* oleadaActual;
 
 public:
     ListaCircular();
-    void registrarOleada(Oleada nuevaOleada); // [cite: 49]
-    void mostrarOleadas();                    // [cite: 50]
-    Oleada* avanzarSiguienteOleada();         // [cite: 51]
-    void reiniciarCiclo();                    // [cite: 52]
+    ~ListaCircular(); // CORRECCIÓN: Destructor añadido para evitar fugas de memoria
+    
+    void registrarOleada(Oleada nuevaOleada);
+    void mostrarOleadas();
+    Oleada* avanzarSiguienteOleada();
+    void reiniciarCiclo();
 };
 
 #endif

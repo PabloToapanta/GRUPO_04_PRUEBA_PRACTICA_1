@@ -86,3 +86,11 @@ void ListaSecuencial::mostrarTorres() {
 int ListaSecuencial::contarTorresActivas() {
     return cantidadActual;
 }
+
+Torre* ListaSecuencial::obtenerTorrePorIndice(int indice) {
+    // Retorna el puntero a la torre si el índice es válido
+    if (indice >= 0 && indice < cantidadActual) {
+        return &arregloTorres[indice];
+    }
+    return nullptr;
+}

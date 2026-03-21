@@ -131,3 +131,7 @@ ListaDobleEnlazada::~ListaDobleEnlazada(){
     }
     std::cout <<"Memoria de enemigos liberada existosamente" << std::endl;
 }
+NodoEnemigo* ListaDobleEnlazada::obtenerPrimero() {
+    // Permite que Juego.cpp sepa dónde empieza la lista para recorrerla
+    return primero;
+}
