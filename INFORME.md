@@ -9,9 +9,9 @@ Se optó por el uso de una lista circular simplemente enlazada debido a que este
 
 **Ventajas principales:**
 
-Ciclo continuo: Permite repetir las oleadas automáticamente sin necesidad de reconstruir la estructura.
-Eficiencia en la gestión: Se evita la recreación de datos cuando se reinicia el juego o se desea repetir niveles.
-Control simplificado: Se utiliza un puntero al último nodo (ultimo) para mantener la circularidad y un puntero auxiliar (oleadaActual) para controlar el avance dentro de la lista.
+* **Ciclo continuo:** Permite repetir las oleadas automáticamente sin necesidad de reconstruir la estructura.
+* **Eficiencia en la gestión:** Se evita la recreación de datos cuando se reinicia el juego o se desea repetir niveles.
+* **Control simplificado:** Se utiliza un puntero al último nodo (ultimo) para mantener la circularidad y un puntero auxiliar (oleadaActual) para controlar el avance dentro de la lista.
 
 ## 2. Estructura del Nodo (Oleada)
 
@@ -22,7 +22,8 @@ Cada nodo de la lista representa una oleada y contiene la información necesaria
 * **idOleada:** Identificador único de la oleada.
 * **cantidadEnemigos:** Número de enemigos que se generarán.
 * **vidaBase:** Nivel de vida de los enemigos en esa oleada.
-* **velocidadBase:** Velocidad base de los enemigos (si aplica en la lógica del juego).
+* **velocidadBase:** Velocidad base de los enemigos.
+* **tipoEnemigo:** Clasificación de los enemigos
 
 Estos datos permiten ajustar la dificultad de forma progresiva en cada ciclo.
 
@@ -34,8 +35,8 @@ A continuación, se describen las funciones principales desarrolladas en este m�
 
 Permite insertar una nueva oleada al final de la lista.
 
-Si la lista está vacía, el nodo se apunta a sí mismo, iniciando la circularidad.
-Si ya existen elementos, el nuevo nodo se enlaza correctamente para mantener la estructura circular.
+Si la lista está vacía entonces el nodo se apunta a sí mismo permitiendo el inicio de la circularidad.
+Si ya existen elementos entonces el nuevo nodo se enlaza correctamente para mantener la estructura circular.
 Se actualiza el puntero ultimo para reflejar el nuevo final de la lista.
 
    **avanzarSiguienteOleada**
@@ -43,7 +44,7 @@ Se actualiza el puntero ultimo para reflejar el nuevo final de la lista.
 Avanza el puntero oleadaActual hacia la siguiente oleada.
 
 Permite recorrer la lista de forma secuencial.
-Retorna una referencia a la oleada actual para su uso en el sistema (por ejemplo, generación de enemigos).
+Retorna una referencia a la oleada actual para su uso en el sistema (generación de enemigos).
 Mantiene el ciclo continuo gracias a la estructura circular.
   
   **reiniciarCiclo**
