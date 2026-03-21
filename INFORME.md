@@ -4,7 +4,7 @@
 **GitHub:** https://github.com/PabloToapanta/GRUPO_04_PRUEBA_PRACTICA_1.git
 
 ##  Integrantes del Equipo
-* **Desarrollador 1:** [Nombre y Apellido] - Módulo de Torres (Lista Secuencial)
+* **Desarrollador 1:** David Rodriguez - Módulo de Torres (Lista Secuencial)
 * **Desarrollador 2:** [Nombre y Apellido] - Módulo de Enemigos (Lista Doble)
 * **Desarrollador 3:** Estiven Chiluisa - Módulo de Oleadas (Lista Circular)
 * **Desarrollador 4 :** Pablo Toapanta - Motor del Juego e Integración
@@ -12,18 +12,24 @@
 ---
 
 ## Módulo 1: Sistema de Torres (Lista Secuencial)
-*(Responsable: [Nombre del Desarrollador 1])*
+*(Responsable: [David Rodriguez)*
 
 ### 1. Justificación de la Estructura de Datos
-[El desarrollador 1 debe explicar aquí por qué se usó un arreglo manual, destacando que las torres son estáticas y es rápido acceder a ellas por índice].
+Para la gestión de todas las defensas se implementó una (Lista Secuencial) basándose en un arreglo estático manejándose manualmente por una variable contadora. La estructura fue elegida ya que el jugador al colocar las torres defensivas en cierta posición estas no deben moverse ya que son una estructura física no movible esto hace que al no requerir movimiento constante muestra un resultado muy eficiente en consumo de la memoria y cumpliendo la restricción de no utilizar contenedores predefinidos de C++.
 
 ### 2. Estructura del Nodo (Torre)
-[El desarrollador 1 debe listar los atributos principales del struct Torre: id, nombre, daño, rango, etc.].
+(struct Torre) Es el nodo base de la lista donde se almacenan los atributos para el cálculo de ataques y estadística en el tablero, sus campos son:
+**id:** identificador de la torre
+**nombre y tipo:** estas son cadenas de texto donde se definen la clase de la torre ataque o cañón
+**posición:** indica la coordenada donde se plantó la torre en el mapa lineal
+**daño (danio):** son los puntos de vida que se resta al enemigo
+**rango:** Distancia hacia adelante y atrás de la torre o el rango que es capaz de vigilar
+**costo:** Valor de construcción de defensas
 
 ### 3. Lógica de Funciones Implementadas
-* **insertarTorre:** [Explicación de cómo controla el límite y evita IDs duplicados].
-* **eliminarTorre:** [Explicación de cómo desplaza los elementos a la izquierda para tapar el hueco].
-* **buscar / mostrar:** [Breve explicación de los recorridos].
+* **insertarTorre:** Antes de añadir una nueva torre lo que hace el sistema es una verificación de dos pasos donde primero se verifica que la variable contadora no superó el límite físico del arreglo (100 espacios) eso evita el desbordamiento de memoria y segundo invoca el método de búsqueda para asegurarse que el id ingresado no exista, si las condiciones se cumplen la torre se guardará y se incrementa en uno (O(1).)
+* **eliminarTorre:** Dado que planteamos una estructura de la torre estática no se puede desconectar, se requiere reorganizar la memoria. El método no necesariamente busca la torre a destruir en cambio se ejecuta un bucle que desplaza cada elemento que está a la derecha de ese índice una posición hacia la izquierda (arregloTorres[i] = arregloTorres[i + 1]). Finalmente, reduce la variable contadora, garantizando que el arreglo no quede con huecos vacíos ni memoria fragmentada.
+* **buscar / mostrar:** Tiene una forma más compleja pero funciona mediante un recorrido secuencial (for) que inicia en el índice 0 y termina con (cantidadActual - 1), el método (buscar) compara los parámetros solicitados con el id de cada iteración y retorna su dirección de memoria si hay una coincidencia (nullptr) y el método mostrar extrae e imprime los datos de cada objeto
 
 ---
 
