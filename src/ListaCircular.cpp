@@ -50,9 +50,11 @@ void ListaCircular::mostrarOleadas() {
 
     NodoOleada* aux = ultimo->siguiente; // Empezamos por el primero
     do {
-        cout << "Oleada ID: " << aux->dato.idOleada 
-             << " | Enemigos: " << aux->dato.cantidadEnemigos 
-             << " | Vida: " << aux->dato.vidaBase << endl;
+       cout << "Oleada ID: " << aux->dato.idOleada 
+     		<< " | Tipo: " << aux->dato.tipoEnemigo
+     		<< " | Enemigos: " << aux->dato.cantidadEnemigos 
+     		<< " | Vida: " << aux->dato.vidaBase 
+     		<< " | Vel: " << aux->dato.velocidadBase << endl;
         aux = aux->siguiente;
     } while (aux != ultimo->siguiente); // Para cuando vuelve al inicio
 }
