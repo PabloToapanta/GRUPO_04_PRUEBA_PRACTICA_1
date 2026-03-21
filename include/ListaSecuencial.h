@@ -15,6 +15,7 @@ public:
     Torre* buscarTorre(int id);           // [cite: 35]
     void mostrarTorres();                 // [cite: 36]
     int contarTorresActivas();            // [cite: 37]
+    Torre* obtenerTorrePorIndice(int indice);
 };
 
 #endif
