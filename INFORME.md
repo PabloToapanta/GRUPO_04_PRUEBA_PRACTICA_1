@@ -1,7 +1,7 @@
 # Informe de Proyecto: Tower Defense en C++
 
 ##  Enlace al Repositorio
-**GitHub:** [Pega aquí el enlace de tu repositorio]
+**GitHub:** https://github.com/PabloToapanta/GRUPO_04_PRUEBA_PRACTICA_1.git
 
 ##  Integrantes del Equipo
 * **Desarrollador 1:** [Nombre y Apellido] - Módulo de Torres (Lista Secuencial)
