@@ -70,7 +70,6 @@ void ListaCircular::mostrarOleadas() {
 
     NodoOleada* aux = ultimo->siguiente; // Empezamos por el primero
     do {
-<<<<<<< HEAD
         // CORRECCIÓN: Añadidos los atributos faltantes (tipo y velocidad)
         cout << "Oleada ID: " << aux->dato.idOleada 
              << " | Enemigos: " << aux->dato.cantidadEnemigos 
