@@ -77,13 +77,7 @@ void ListaCircular::mostrarOleadas() {
              << " (" << aux->dato.tipoEnemigo << ")"
              << " | Vida: " << aux->dato.vidaBase 
              << " | Vel: " << aux->dato.velocidadBase << endl;
-=======
-       cout << "Oleada ID: " << aux->dato.idOleada 
-     		<< " | Tipo: " << aux->dato.tipoEnemigo
-     		<< " | Enemigos: " << aux->dato.cantidadEnemigos 
-     		<< " | Vida: " << aux->dato.vidaBase 
-     		<< " | Vel: " << aux->dato.velocidadBase << endl;
->>>>>>> origin
+
         aux = aux->siguiente;
     } while (aux != ultimo->siguiente); // Para cuando vuelve al inicio
 }
