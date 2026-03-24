@@ -6,7 +6,7 @@ ListaSecuencial::ListaSecuencial() {
     cantidadActual = 0;
 }
 
-// Método para insertar una torre en el arreglo manual [cite: 48]
+// Método para insertar una torre en el arreglo manual 
 void ListaSecuencial::insertarTorre(Torre nuevaTorre) {
     // 1. Validar que no se desborde el arreglo (límite de 100)
     if (cantidadActual >= 100) {
@@ -14,7 +14,7 @@ void ListaSecuencial::insertarTorre(Torre nuevaTorre) {
         return;
     }
 
-    // 2. Validar que el ID sea único para evitar errores al eliminar [cite: 49]
+    // 2. Validar que el ID sea único para evitar errores al eliminar 
     if (buscarTorre(nuevaTorre.id) != nullptr) {
         std::cout << "Error: Ya existe una torre con el ID " << nuevaTorre.id << ".\n";
         return;
@@ -26,7 +26,7 @@ void ListaSecuencial::insertarTorre(Torre nuevaTorre) {
     std::cout << "Torre '" << nuevaTorre.nombre << "' construida exitosamente.\n";
 }
 
-// Método para eliminar una torre y reacomodar el arreglo [cite: 38]
+// Método para eliminar una torre y reacomodar el arreglo 
 void ListaSecuencial::eliminarTorre(int id) {
     int posicionEncontrada = -1;
 
@@ -44,7 +44,7 @@ void ListaSecuencial::eliminarTorre(int id) {
         return;
     }
 
-    // 2. Desplazar los elementos hacia la izquierda para reacomodar el arreglo [cite: 38]
+    // 2. Desplazar los elementos hacia la izquierda para reacomodar el arreglo 
     for (int i = posicionEncontrada; i < cantidadActual - 1; i++) {
         arregloTorres[i] = arregloTorres[i + 1];
     }

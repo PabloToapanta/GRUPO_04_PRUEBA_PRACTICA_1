@@ -5,16 +5,16 @@
 
 class ListaSecuencial {
 private:
-    Torre arregloTorres[100]; // Arreglo estático manual [cite: 31, 75]
+    Torre arregloTorres[100]; // Arreglo estático manual 
     int cantidadActual;
 
 public:
     ListaSecuencial();
-    void insertarTorre(Torre nuevaTorre); // [cite: 33]
-    void eliminarTorre(int id);           // [cite: 34]
-    Torre* buscarTorre(int id);           // [cite: 35]
-    void mostrarTorres();                 // [cite: 36]
-    int contarTorresActivas();            // [cite: 37]
+    void insertarTorre(Torre nuevaTorre); 
+    void eliminarTorre(int id);           
+    Torre* buscarTorre(int id);           
+    void mostrarTorres();                 
+    int contarTorresActivas();            
     Torre* obtenerTorrePorIndice(int indice);
 };
 

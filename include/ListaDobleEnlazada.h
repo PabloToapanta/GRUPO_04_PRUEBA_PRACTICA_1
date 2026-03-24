@@ -11,19 +11,19 @@ struct NodoEnemigo {
 
 class ListaDobleEnlazada {
 private:
-    NodoEnemigo* primero; // [cite: 38]
-    NodoEnemigo* ultimo;  // [cite: 38]
+    NodoEnemigo* primero; 
+    NodoEnemigo* ultimo;  
 
 public:
     ListaDobleEnlazada(); //Destructor
     ~ListaDobleEnlazada();
-    void insertarFinal(Enemigo nuevoEnemigo); // [cite: 41]
-    void eliminarDestruido(int id);           // [cite: 42]
-    NodoEnemigo* buscarEnemigo(int id);       // [cite: 43]
-    void recorrerAdelante();                  // [cite: 44]
-    void recorrerAtras();                     // [cite: 45]
+    void insertarFinal(Enemigo nuevoEnemigo); 
+    void eliminarDestruido(int id);           
+    NodoEnemigo* buscarEnemigo(int id);       
+    void recorrerAdelante();                  
+    void recorrerAtras();                     
     void actualizarPosiciones();    
-    NodoEnemigo* obtenerPrimero();          // [cite: 46]
+    NodoEnemigo* obtenerPrimero();          
 };
 
 #endif

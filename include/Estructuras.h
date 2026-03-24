@@ -4,30 +4,30 @@
 #include <string>
 
 struct Torre {
-    int id;               // [cite: 84]
-    std::string nombre;   // [cite: 85]
-    std::string tipo;     // [cite: 86]
-    int posicion;         // [cite: 87]
-    int danio;            // [cite: 88]
-    int rango;            // [cite: 89]
-    int costo;            // [cite: 90]
+    int id;               
+    std::string nombre;   
+    std::string tipo;     
+    int posicion;         
+    int danio;            
+    int rango;            
+    int costo;            
 };
 
 struct Enemigo {
-    int id;               // [cite: 94]
-    std::string tipo;     // [cite: 95]
-    int vida;             // [cite: 96]
-    int velocidad;        // [cite: 97]
-    int posicion;         // [cite: 98]
-    int recompensa;       // [cite: 99]
+    int id;               
+    std::string tipo;     
+    int vida;             
+    int velocidad;        
+    int posicion;         
+    int recompensa;       
 };
 
 struct Oleada {
-    int idOleada;             // [cite: 103]
-    int cantidadEnemigos;     // [cite: 104]
-    std::string tipoEnemigo;  // [cite: 105]
-    int vidaBase;             // [cite: 105]
-    int velocidadBase;        // [cite: 106]
+    int idOleada;             
+    int cantidadEnemigos;     
+    std::string tipoEnemigo;  
+    int vidaBase;             
+    int velocidadBase;        
 };
 
 #endif
