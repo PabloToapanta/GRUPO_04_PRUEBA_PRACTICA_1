@@ -119,6 +119,14 @@ El sistema cuenta con una interfaz de consola (CLI) interactiva basada en un men
 
 ---
 
+## Diagrama de clases
+![DiagramaClases](/images/class-diagrams.png)
+
+## Diagrama de secuencia
+![Diagrama de Secuencia](/images/sequence-diagram.png)
+
+
+
 ## Instrucciones de Compilación y Ejecución
 Para compilar este proyecto desde la terminal usando G++, ubicarse en la carpeta raíz del proyecto y ejecutar:
 `g++ src/*.cpp -o TowerDefense`
